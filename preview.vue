@@ -5,7 +5,8 @@
         <ul :style="[ulWidth, styleObj]" :left="left">
           <li v-for="item in options" :style="liWidth">
             <div>
-              <img :src="item.imgInfo" alt="">
+              <img v-if="item.base64 === false" :src="item.imgInfo" :alt="item.alt">
+              <img v-else :src="`data:image/png;base64,${item.imgInfo}`" :alt="item.alt">
             </div>
           </li>
         </ul>
@@ -93,4 +94,4 @@
 
 </script>
 
-<style src="./preview.css"></style>
+<style src="styles/components/preview"></style>
